@@ -73,6 +73,10 @@ export function TranslatorFrom<LP extends LanguagePack>(languagePack: LP)
             if (path != undefined)
             {
                 packNow = packNow[path]
+
+                if (packNow == undefined)
+                    return key
+
                 continue
             }
 
@@ -108,6 +112,17 @@ export function TranslatorWithFallbacks<LP extends LanguagePack>
             if (path != undefined)
             {
                 packNow = packNow[path]
+
+                if (packNow == undefined)
+                {
+                    packNow = lps.shift()
+
+                    if (packNow == undefined)
+                        return key
+
+                    breadcrumbs = key.split(".")
+                }
+
                 continue
             }
 
