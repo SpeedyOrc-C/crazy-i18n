@@ -1,0 +1,27 @@
+{
+  "name": "crazy-i18n",
+  "version": "0.1.0",
+  "description": "A fully-typed i18n solution with code completion",
+  "type": "module",
+  "files": [
+    "./src/*.ts",
+    "./src/*.js",
+    "./src/*.d.ts"
+  ],
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "build": "cd src && tsc",
+    "test": "vitest run --coverage",
+    "clean": "rm -f ./crazy-i18n-*.tgz; rm -f ./src/*.js; rm -f ./src/*.d.ts"
+  },
+  "keywords": ["i18n", "internationalisation", "typescript"],
+  "author": "chen-zhanming",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^3.1.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.3"
+  }
+}
