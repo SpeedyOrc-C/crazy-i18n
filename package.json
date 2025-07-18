@@ -1,6 +1,6 @@
 {
   "name": "crazy-i18n",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A fully-typed i18n solution with code completion",
   "type": "module",
   "files": [

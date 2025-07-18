@@ -3,10 +3,10 @@ type Split<s extends string, sep extends string> =
         ? [head, ...Split<tail, sep>]
         : [s]
 
-type Field<obj extends {[k: string]: any}, keys> =
+type Field<obj extends {[k: string]: any}, keys extends any[]> =
     keys extends [infer head, ...infer tail]
         ? head extends string
-            ? Field<obj[head], tail>
+            ? Field<Exclude<obj[head], undefined>, tail>
             : never
         : obj
 

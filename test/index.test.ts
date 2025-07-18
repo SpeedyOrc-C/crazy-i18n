@@ -15,6 +15,10 @@ type Template = {
             bar?: string
         }
     }
+    optionalNested?: {
+        foo: string
+        bar?: string
+    }
 }
 
 // Start translating them into Chinese...
@@ -57,6 +61,7 @@ test("Chinese", () =>
     expect(t("greet", "世界")).toBe("你好世界！")
     // Automatically fallback to the original string
     expect(t("good.nested.bar")).toBe("good.nested.bar")
+    expect(t("optionalNested.foo")).toBe("optionalNested.foo")
 })
 
 test("English", () =>
