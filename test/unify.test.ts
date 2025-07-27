@@ -1,5 +1,5 @@
 import {test, expect} from "vitest"
-import {PopulateLanguagePacks} from "../src/unify.js";
+import {PopulateLanguagePacks} from "../src/unify"
 
 // Start translating them into Chinese...
 const ZhCn = {

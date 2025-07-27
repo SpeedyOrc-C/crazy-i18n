@@ -1,3 +1,5 @@
+import {ListOf} from "ts-toolbelt/out/Union/ListOf"
+
 enum LeafType { String, Function }
 
 type PackType = { [key: string]: PackType | LeafType }
@@ -153,25 +155,8 @@ function FallbackFunctionFiller(path: string[])
     }
 }
 
-type UnionToIntersection<U> =
-    U extends any
-        ? (x: U) => void
-        : never extends (x: infer R) => void
-            ? R
-            : never
-
-type LastInUnion<U> =
-    UnionToIntersection<U extends any ? (x: U) => void : never> extends (x: infer L) => void
-        ? L
-        : never
-
-type UnionToTuple<U, T extends any[] = []> =
-    [U] extends [never]
-        ? T
-        : UnionToTuple<Exclude<U, LastInUnion<U>>, [LastInUnion<U>, ...T]>;
-
 type PopulateLanguagePacks<packs extends { [k: string]: LanguagePack }> = {
-    [k in keyof packs]: UnionsUnifyLanguagePack<UnionToTuple<packs[keyof packs]>>
+    [k in keyof packs]: UnionsUnifyLanguagePack<ListOf<packs[keyof packs]>>
 }
 
 export function PopulateLanguagePacks<packs extends { [k: string]: LanguagePack }>
