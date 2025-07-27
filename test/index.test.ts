@@ -1,5 +1,6 @@
 import {expect, test} from "vitest"
 import { TranslatorFrom, TranslatorWithFallbacks } from "../src/index.js"
+import {FallbackFunctionFiller, FallbackStringFiller, PopulateLanguagePacks} from "../src/unify.js";
 
 // Start by defining a template for every entry you want to translate...
 type Template = {
@@ -81,4 +82,14 @@ test("Fallback", () =>
     expect(t("greet", "世界")).toBe("你好世界！")
     expect(t("good.nested.bar")).toBe("Bar")
     expect(t("optional")).toBe("optional")
+})
+
+test("", () =>
+{
+    const t = PopulateLanguagePacks({ZhCn, En}).ZhCn
+
+    expect(t.hello).toBe("你好。")
+    expect(t.greet("世界")).toBe("你好世界！")
+    expect(t.good.nested.bar).toBe("good.nested.bar")
+    expect(t.optionalNested?.foo).toBe("optionalNested.foo")
 })

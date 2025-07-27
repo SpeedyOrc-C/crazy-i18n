@@ -1,6 +1,6 @@
 {
   "name": "crazy-i18n",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A fully-typed i18n solution with code completion",
   "type": "module",
   "files": [
@@ -9,7 +9,8 @@
     "./src/*.d.ts"
   ],
   "exports": {
-    ".": "./src/index.js"
+    ".": "./src/index.js",
+    "./unify": "./src/unify.js"
   },
   "scripts": {
     "build": "cd src && tsc",

@@ -24,5 +24,6 @@
   },
   "files": [
     "./index.ts",
+    "./unify.ts"
   ]
 }

@@ -18,7 +18,7 @@ type LeafToArgs<leaf extends NonNullable<Leaf>> =
 type GetArgs<obj extends {[k: string]: any}, key extends string> =
     LeafToArgs<Field<obj, Split<key>>>
 
-type ObjectOfDepth<depth, a> =
+export type ObjectOfDepth<depth, a> =
     depth extends 1 ? {[key: string]: a                      } :
     depth extends 2 ? {[key: string]: a | ObjectOfDepth<1, a>} :
     depth extends 3 ? {[key: string]: a | ObjectOfDepth<2, a>} :
